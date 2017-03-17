@@ -5,13 +5,45 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 
 import maven.project.TZ.Interface.Record_Interface;
 
 public class Record implements Record_Interface{
 	static String html;
 	
-	public void records(String FIO,String DOB,String Phone,String Email,String Skype,String Avatar,String Target,String Experiences,String Educations,String AdditionalEducations,String Skills){
+	String FIO;
+	String DOB;
+	String Phone;
+	String Email;
+	String Skype;
+	String Avatar;
+	String Target;
+	String Experiences;
+	String Educations;
+	String AdditionalEducations;
+	String Skills;
+	
+	
+	public void records(String FIO,String DOB,String Phone,String Email,String Skype,String Avatar,String Target,String Experiences,String Educations, ArrayList<String> AdditionalEducations, ArrayList<String> Skills){
+	this.FIO = FIO;
+	this.DOB = DOB;
+	this.Phone = Phone;
+	this.Email = Email;
+	this.Skype = Skype;
+	this.Avatar = Avatar;
+	this.Target = Target;
+	this.Experiences = Experiences;
+	this.Educations = Educations;
+	
+	this.AdditionalEducations = (new ReturnCollection()).getStr(AdditionalEducations);
+	this.Skills = (new ReturnCollection()).getStr(Skills);
+	
+	record();
+	
+	}
+	
+	public void record(){
 		html = "<!DOCTYPE html>\n" +
 "<html style=\"background: #EDEEF0\">\n" +
 "<head>\n" +
@@ -76,5 +108,6 @@ public class Record implements Record_Interface{
 		}
 
 	}
+	
 
 }

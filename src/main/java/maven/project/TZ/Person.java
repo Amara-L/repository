@@ -1,5 +1,7 @@
 package maven.project.TZ;
 
+import java.util.ArrayList;
+
 public class Person {
 
 	private String FIO;
@@ -20,9 +22,9 @@ public class Person {
 
     private String educations;
 
-    private String additionalEducations;
+    private ArrayList<String> additionalEducations;
 
-    private String skills;
+    private ArrayList<String> skills;
 
     public String getFIO() {
         return FIO;
@@ -96,22 +98,21 @@ public class Person {
         this.educations = educations;
     }
 
-    public String getAdditionalEducations() {
+    public ArrayList<String> getAdditionalEducations() {
         return additionalEducations;
     }
 
     public void setAdditionalEducations(String additionalEducations) {
-        this.additionalEducations = additionalEducations;
+        this.additionalEducations = (new ReturnCollection()).getColl(additionalEducations);
     }
 
-    public String getSkills() {
+    public ArrayList<String> getSkills() {
         return skills;
     }
 
     public void setSkills(String skills) {
-        this.skills = skills;
+        this.skills = (new ReturnCollection()).getColl(skills);
     }
-
 
   
 }
