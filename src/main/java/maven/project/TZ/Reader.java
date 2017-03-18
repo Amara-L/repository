@@ -10,16 +10,17 @@ import maven.project.TZ.Interface.Reader_Interface;
 
 public class Reader implements Reader_Interface{
 
-public void read(){
+public void read() throws IOException{
 	
 
      Properties property = new Properties();
 
-     try {
+     try (FileInputStream in = new FileInputStream("src/main/resources/person.properties");
+    	 InputStreamReader isr = new InputStreamReader(in, "cp1251");) {
 
    
-    	 FileInputStream in = new FileInputStream("src/main/resources/person.properties");
-    	 InputStreamReader isr = new InputStreamReader(in, "cp1251");
+//    	 FileInputStream in = new FileInputStream("src/main/resources/person.properties");
+//    	 InputStreamReader isr = new InputStreamReader(in, "cp1251");
     	 property.load(isr);
          Person person = new Person();
          
@@ -36,11 +37,12 @@ public void read(){
          person.setSkills(property.getProperty("skills"));
 
          
-         new Record().records(person.getFIO(),person.getDOB(),person.getPhone(),person.getEmail(),person.getSkype(),person.getAvatar(),person.getTarget(),person.getExperiences(),person.getEducations(),person.getAdditionalEducations(),person.getSkills());
+         new Record(person).records();
 
-     } catch (IOException e) {
-         System.err.println("ОШИБКА: Файл свойств отсуствует!");
-     }
+     } 
+//     catch (IOException e) {
+//         System.err.println("ОШИБКА: Файл свойств отсуствует!");
+//     }
 }
 	
 }

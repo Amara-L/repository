@@ -1,11 +1,12 @@
 package maven.project.TZ.Interface;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface Record_Interface {
 
-	public void records(String FIO,String DOB,String Phone,String Email,String Skype,String Avatar,String Target,String Experiences,String Educations,ArrayList<String> AdditionalEducations,ArrayList<String> Skills);
+	public void records();
 	
-	public void writerFile();
+	public void writerFile() throws IOException;
 	
 }

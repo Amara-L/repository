@@ -1,9 +1,11 @@
 package maven.project.TZ;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.ArrayList;
 
@@ -25,25 +27,24 @@ public class Record implements Record_Interface{
 	String Skills;
 	
 	
-	public void records(String FIO,String DOB,String Phone,String Email,String Skype,String Avatar,String Target,String Experiences,String Educations, ArrayList<String> AdditionalEducations, ArrayList<String> Skills){
-	this.FIO = FIO;
-	this.DOB = DOB;
-	this.Phone = Phone;
-	this.Email = Email;
-	this.Skype = Skype;
-	this.Avatar = Avatar;
-	this.Target = Target;
-	this.Experiences = Experiences;
-	this.Educations = Educations;
+	public Record(Person person){
+	FIO = person.getFIO();
+	DOB = person.getDOB();
+	Phone = person.getPhone();
+	Email = person.getEmail();
+	Skype = person.getSkype();
+	Avatar = person.getAvatar();
+	Target = person.getTarget();
+	Experiences = person.getExperiences();
+	Educations = person.getEducations();
 	
-	this.AdditionalEducations = (new ReturnCollection()).getStr(AdditionalEducations);
-	this.Skills = (new ReturnCollection()).getStr(Skills);
+	AdditionalEducations =  (new ReturnCollection()).getStr(person.getAdditionalEducations());
+	Skills = (new ReturnCollection()).getStr(person.getSkills());
 	
-	record();
 	
 	}
 	
-	public void record(){
+	public void records(){
 		html = "<!DOCTYPE html>\n" +
 "<html style=\"background: #EDEEF0\">\n" +
 "<head>\n" +
@@ -88,24 +89,32 @@ public class Record implements Record_Interface{
 "</body>\n" +
 "</html>";
 		
+		try{
+			
 		writerFile();
+		
+		}catch (IOException e) {
+	         System.err.println("Error");
+		}
 	}
+		
 	
-	public void writerFile() {
+	public void writerFile() throws IOException {
 
 		File file = new File("src\\main\\file\\summary.html");
-		try {
+		try (Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");) {
 
-			Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");
+//			Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");
 
 			try {
 				out.write(html);
 			} finally {
 				out.close();
 			}
-		} catch (IOException ex) {
-			throw new RuntimeException(ex);
-		}
+		} 
+//		catch (IOException ex) {
+//			throw new RuntimeException(ex);
+//		}
 
 	}
 	
