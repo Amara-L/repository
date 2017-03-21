@@ -1,120 +1,136 @@
 package maven.project.TZ;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Person {
 
 	private String FIO;
 
-    private String DOB;
+	private String DOB;
 
-    private String phone;
+	private String phone;
 
-    private String email;
+	private String email;
 
-    private String skype;
+	private String skype;
 
-    private String avatar;
- 
-    private String target;
+	private String avatar;
 
-    private String experiences;
+	private String target;
 
-    private String educations;
+	private String experiences;
 
-    private ArrayList<String> additionalEducations;
+	private String educations;
 
-    private ArrayList<String> skills;
+	private ArrayList<String> additionalEducations;
 
-    public String getFIO() {
-        return FIO;
-    }
+	private ArrayList<String> skills;
 
-    public void setFIO(String FIO) {
-        this.FIO = FIO;
-    }
 
-    public String getDOB() {
-        return DOB;
-    }
+	public void setMap(HashMap<String, String> personMap){
+		FIO = personMap.get("FIO");
+		DOB = personMap.get("DOB");
+		phone = personMap.get("phone");
+		email = personMap.get("email");
+		skype = personMap.get("skype");
+		avatar = personMap.get("avatar");
+		target = personMap.get("target");
+		experiences = personMap.get("experiences");
+		educations = personMap.get("educations");
+		additionalEducations = (new ReturnCollection()).getColl(personMap.get("additional_educations"));
+		skills = (new ReturnCollection()).getColl(personMap.get("skills"));
+	}
 
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
-    }
+	public String getFIO() {
+		return FIO;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setFIO(String FIO) {
+		this.FIO = FIO;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getDOB() {
+		return DOB;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setDOB(String DOB) {
+		this.DOB = DOB;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getSkype() {
-        return skype;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setSkype(String skype) {
-        this.skype = skype;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getAvatar() {
-        return avatar;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setAvatarPath(String avatar) {
-        this.avatar = avatar;
-    }
+	public String getSkype() {
+		return skype;
+	}
 
-    public String getTarget() {
-        return target;
-    }
+	public void setSkype(String skype) {
+		this.skype = skype;
+	}
 
-    public void setTarget(String target) {
-        this.target = target;
-    }
+	public String getAvatar() {
+		return avatar;
+	}
 
-    public String getExperiences() {
-        return experiences;
-    }
+	public void setAvatarPath(String avatar) {
+		this.avatar = avatar;
+	}
 
-    public void setExperiences(String experiences) {
-        this.experiences = experiences;
-    }
+	public String getTarget() {
+		return target;
+	}
 
-    public String getEducations() {
-        return educations;
-    }
+	public void setTarget(String target) {
+		this.target = target;
+	}
 
-    public void setEducations(String educations) {
-        this.educations = educations;
-    }
+	public String getExperiences() {
+		return experiences;
+	}
 
-    public ArrayList<String> getAdditionalEducations() {
-        return additionalEducations;
-    }
+	public void setExperiences(String experiences) {
+		this.experiences = experiences;
+	}
 
-    public void setAdditionalEducations(String additionalEducations) {
-        this.additionalEducations = (new ReturnCollection()).getColl(additionalEducations);
-    }
+	public String getEducations() {
+		return educations;
+	}
 
-    public ArrayList<String> getSkills() {
-        return skills;
-    }
+	public void setEducations(String educations) {
+		this.educations = educations;
+	}
 
-    public void setSkills(String skills) {
-        this.skills = (new ReturnCollection()).getColl(skills);
-    }
+	public ArrayList<String> getAdditionalEducations() {
+		return additionalEducations;
+	}
 
-  
+	public void setAdditionalEducations(String additionalEducations) {
+		this.additionalEducations = (new ReturnCollection()).getColl(additionalEducations);
+	}
+
+	public ArrayList<String> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = (new ReturnCollection()).getColl(skills);
+	}
+
+
 }
-	
+
 
