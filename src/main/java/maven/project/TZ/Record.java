@@ -28,6 +28,7 @@ public class Record implements Record_Interface{
 	
 	
 	public Record(Person person){
+		//Получаем данные из объекта Person
 	FIO = person.getFIO();
 	DOB = person.getDOB();
 	Phone = person.getPhone();
@@ -38,6 +39,7 @@ public class Record implements Record_Interface{
 	Experiences = person.getExperiences();
 	Educations = person.getEducations();
 	
+	//Преобразуем списки в строку, с помощью вызова метода getStr из класса ReturnCollection
 	AdditionalEducations =  (new ReturnCollection()).getStr(person.getAdditionalEducations());
 	Skills = (new ReturnCollection()).getStr(person.getSkills());
 	
@@ -45,6 +47,8 @@ public class Record implements Record_Interface{
 	}
 	
 	public void records(){
+		//Собираем строку-шаблон html-файла
+		
 		html = "<!DOCTYPE html>\n" +
 "<html style=\"background: #EDEEF0\">\n" +
 "<head>\n" +
@@ -101,6 +105,8 @@ public class Record implements Record_Interface{
 	
 	public void writerFile() throws IOException {
 
+		//Записываем строку html в html-файл
+		
 		File file = new File("src\\main\\file\\summary.html");
 		try (Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");) {
 

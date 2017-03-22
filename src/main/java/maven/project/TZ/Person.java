@@ -38,6 +38,8 @@ public class Person {
 		target = personMap.get("target");
 		experiences = personMap.get("experiences");
 		educations = personMap.get("educations");
+		
+		//Преобразуем полученные строки в список, вызывая метод getColl из класса ReturnCollection
 		additionalEducations = (new ReturnCollection()).getColl(personMap.get("additional_educations"));
 		skills = (new ReturnCollection()).getColl(personMap.get("skills"));
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ReturnCollection {
 	
-	
+	//Метод, разбивающий строку на список
     public ArrayList<String> getColl(String str){
     	ArrayList<String> arrayColl = new ArrayList<String>();
     	
@@ -17,6 +17,7 @@ public class ReturnCollection {
     	return arrayColl;
     }
     
+    //Метод, возвращающий список с html-разметкой в виде строки
     public String getStr(ArrayList<String> arrayColl){
     	String str = "";
     	for(int i = 0; i<arrayColl.size(); i++){
