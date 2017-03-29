@@ -9,8 +9,11 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
 import maven.project.TZ.Interface.Record_Interface;
 
+@Component
 public class Record implements Record_Interface{
 	static String html;
 	
@@ -27,7 +30,7 @@ public class Record implements Record_Interface{
 	String Skills;
 	
 	
-	public Record(Person person){
+	public void rec(Person person){
 		//Получаем данные из объекта Person
 	FIO = person.getFIO();
 	DOB = person.getDOB();
@@ -43,7 +46,7 @@ public class Record implements Record_Interface{
 	AdditionalEducations =  (new ReturnCollection()).getStr(person.getAdditionalEducations());
 	Skills = (new ReturnCollection()).getStr(person.getSkills());
 	
-	
+	records();
 	}
 	
 	public void records(){
@@ -110,7 +113,6 @@ public class Record implements Record_Interface{
 		File file = new File("src\\main\\file\\summary.html");
 		try (Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");) {
 
-//			Writer out = new OutputStreamWriter(new FileOutputStream(file), "Cp1251");
 
 			try {
 				out.write(html);
@@ -118,9 +120,7 @@ public class Record implements Record_Interface{
 				out.close();
 			}
 		} 
-//		catch (IOException ex) {
-//			throw new RuntimeException(ex);
-//		}
+
 
 	}
 	
