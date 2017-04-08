@@ -17,7 +17,7 @@ import maven.project.TZ.Interface.Reader_Interface;
 @Service
 public class Reader implements Reader_Interface{
 
-	public Person read() throws IOException{
+	public Person read(){
 
 //Создаем HashMap, который будет хранить получаемые из properties-файла данные
 		HashMap<String, String> personMap = new HashMap<String, String>();

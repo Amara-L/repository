@@ -3,3 +3,7 @@
 /.classpath
 /target/*
 /.settings
+/.idea
+/target
+
+/task6.iml

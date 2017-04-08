@@ -1,14 +1,10 @@
 package maven.project.TZ;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-import java.util.ArrayList;
-
 import org.springframework.stereotype.Component;
 
 import maven.project.TZ.Interface.Record_Interface;
@@ -119,7 +115,9 @@ public class Record implements Record_Interface{
 			} finally {
 				out.close();
 			}
-		} 
+		} catch (IOException e) {
+	         System.err.println("Error");
+		}
 
 
 	}
