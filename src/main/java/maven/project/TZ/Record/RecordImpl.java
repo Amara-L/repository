@@ -8,7 +8,7 @@ import java.io.Writer;
 
 import maven.project.TZ.Interface.Record;
 import maven.project.TZ.Others.PersonServise;
-import maven.project.TZ.Others.ReturnCollection;
+import maven.project.TZ.Others.Utils;
 import maven.project.TZ.Person.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +50,8 @@ public class RecordImpl implements Record{
 	Educations = person.getEducations();
 	
 	//Преобразуем списки в строку, с помощью вызова метода getStr из класса ReturnCollection
-	AdditionalEducations =  (new ReturnCollection()).getStr(person.getAdditionalEducations());
-	Skills = (new ReturnCollection()).getStr(person.getSkills());
+	AdditionalEducations =  Utils.getStr(person.getAdditionalEducations());
+	Skills = Utils.getStr(person.getSkills());
 	
 	try{
 		

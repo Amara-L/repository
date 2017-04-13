@@ -3,10 +3,10 @@ package maven.project.TZ.Others;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ReturnCollection {
+public class Utils {
 	
 	//Метод, разбивающий строку на список
-    public ArrayList<String> getColl(String str){
+    public static ArrayList<String> getColl(String str){
     	ArrayList<String> arrayColl = new ArrayList<String>();
     	
     	String[] arrColl = str.split(";");
@@ -17,7 +17,7 @@ public class ReturnCollection {
     }
     
     //Метод, возвращающий список с html-разметкой в виде строки
-    public String getStr(ArrayList<String> arrayColl){
+    public static String getStr(ArrayList<String> arrayColl){
     	StringBuilder builder = new StringBuilder();
     	for(int i = 0; i<arrayColl.size(); i++){
     		builder.append("<li>");

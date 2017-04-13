@@ -1,10 +1,11 @@
 package maven.project.TZ.Person;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
-import maven.project.TZ.Others.ReturnCollection;
+import maven.project.TZ.Others.Utils;
+
+
 
 public class Person {
 
@@ -43,8 +44,8 @@ public class Person {
 		educations = personMap.get("educations");
 		
 		//Преобразуем полученные строки в список, вызывая метод getColl из класса ReturnCollection
-		additionalEducations = (new ReturnCollection()).getColl(personMap.get("additional_educations"));
-		skills = (new ReturnCollection()).getColl(personMap.get("skills"));
+		additionalEducations = Utils.getColl(personMap.get("additional_educations"));
+		skills = Utils.getColl(personMap.get("skills"));
 	}
 
 	public String getFIO() {
@@ -124,7 +125,7 @@ public class Person {
 	}
 
 	public void setAdditionalEducations(String additionalEducations) {
-		this.additionalEducations = (new ReturnCollection()).getColl(additionalEducations);
+		this.additionalEducations = Utils.getColl(additionalEducations);
 	}
 
 	public ArrayList<String> getSkills() {
@@ -132,7 +133,7 @@ public class Person {
 	}
 
 	public void setSkills(String skills) {
-		this.skills = (new ReturnCollection()).getColl(skills);
+		this.skills = Utils.getColl(skills);
 	}
 
 
