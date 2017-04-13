@@ -1,4 +1,4 @@
-package maven.project.TZ;
+package maven.project.TZ.Reader;
 
 
 import java.util.HashMap;
@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import maven.project.TZ.Interface.Reader;
+import maven.project.TZ.Others.PropertyReader;
+import maven.project.TZ.Person.Person;
 
 @Service
 public class ReaderImpl implements Reader{

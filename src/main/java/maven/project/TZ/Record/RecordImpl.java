@@ -1,4 +1,4 @@
-package maven.project.TZ;
+package maven.project.TZ.Record;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -7,6 +7,9 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import maven.project.TZ.Interface.Record;
+import maven.project.TZ.Others.PersonServise;
+import maven.project.TZ.Others.ReturnCollection;
+import maven.project.TZ.Person.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

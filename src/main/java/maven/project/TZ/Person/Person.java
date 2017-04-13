@@ -1,8 +1,10 @@
-package maven.project.TZ;
+package maven.project.TZ.Person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import maven.project.TZ.Others.ReturnCollection;
 
 public class Person {
 

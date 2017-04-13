@@ -1,4 +1,6 @@
-package maven.project.TZ;
+package maven.project.TZ.Data;
+
+import maven.project.TZ.Person.Person;
 
 import org.springframework.stereotype.Component;
 

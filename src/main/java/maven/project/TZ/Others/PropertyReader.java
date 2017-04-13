@@ -1,4 +1,4 @@
-package maven.project.TZ;
+package maven.project.TZ.Others;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.Properties;
 public class PropertyReader implements Runnable{
 
 	String path;
-	static Map<String, String> personMap = new HashMap<String, String>();
+	public static Map<String, String> personMap = new HashMap<String, String>();
 	
 	public PropertyReader(String path){
 		this.path = "src/main/resources/" + path;

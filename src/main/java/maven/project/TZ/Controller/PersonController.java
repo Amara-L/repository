@@ -1,7 +1,7 @@
 package maven.project.TZ.Controller;
 
-import maven.project.TZ.DataPersServise;
-import maven.project.TZ.Person;
+import maven.project.TZ.Person.Person;
+import maven.project.TZ.Servise.DataPersServise;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

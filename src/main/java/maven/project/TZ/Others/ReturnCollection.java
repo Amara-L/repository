@@ -1,4 +1,4 @@
-package maven.project.TZ;
+package maven.project.TZ.Others;
 
 import java.util.ArrayList;
 import java.util.Arrays;
