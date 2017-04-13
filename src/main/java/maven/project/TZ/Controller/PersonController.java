@@ -1,7 +1,7 @@
 package maven.project.TZ.Controller;
 
+import maven.project.TZ.DataPersServise;
 import maven.project.TZ.Person;
-import maven.project.TZ.Servise;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PersonController {
 	
 	@Autowired
-	Servise service;
+	DataPersServise service;
 	
 	@RequestMapping("/summary")
     public String getEmployeeInfo(Model model) {

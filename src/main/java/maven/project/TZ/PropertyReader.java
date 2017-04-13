@@ -4,12 +4,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class PropertyReader implements Runnable{
 
 	String path;
-	static HashMap personMap = new HashMap<String, String>();
+	static Map<String, String> personMap = new HashMap<String, String>();
 	
 	public PropertyReader(String path){
 		this.path = "src/main/resources/" + path;

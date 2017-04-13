@@ -2,6 +2,7 @@ package maven.project.TZ;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Person {
 
@@ -28,7 +29,7 @@ public class Person {
 	private ArrayList<String> skills;
 
 
-	public void setMap(HashMap<String, String> personMap){
+	public void setMap(Map<String, String> personMap){
 		FIO = personMap.get("FIO");
 		DOB = personMap.get("DOB");
 		phone = personMap.get("phone");

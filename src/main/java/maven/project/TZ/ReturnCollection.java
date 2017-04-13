@@ -1,6 +1,7 @@
 package maven.project.TZ;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ReturnCollection {
 	
@@ -10,21 +11,21 @@ public class ReturnCollection {
     	
     	String[] arrColl = str.split(";");
     	
-    	for(int i = 0; i<arrColl.length; i++){
-    		arrayColl.add(arrColl[i]);
-    	}
+    	arrayColl.addAll(Arrays.asList(arrColl));
     	
     	return arrayColl;
     }
     
     //Метод, возвращающий список с html-разметкой в виде строки
     public String getStr(ArrayList<String> arrayColl){
-    	String str = "";
+    	StringBuilder builder = new StringBuilder();
     	for(int i = 0; i<arrayColl.size(); i++){
-    		str += "<li>" + arrayColl.get(i) + "</li> \n ";
+    		builder.append("<li>");
+    		builder.append(arrayColl.get(i));
+    		builder.append("</li> \n ");
     	}
-    	
-    	return str;
+    	    	
+    	return builder.toString();
     }
 
 }

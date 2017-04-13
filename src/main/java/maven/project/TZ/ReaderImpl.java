@@ -1,26 +1,20 @@
 package maven.project.TZ;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Properties;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.stereotype.Component;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
-import maven.project.TZ.Interface.Reader_Interface;
+import maven.project.TZ.Interface.Reader;
 
 @Service
-public class Reader implements Reader_Interface{
+public class ReaderImpl implements Reader{
 
 	public Person read(){
 
 //Создаем HashMap, который будет хранить получаемые из properties-файла данные
-		HashMap<String, String> personMap = new HashMap<String, String>();
+		Map<String, String> personMap = new HashMap<String, String>();
 		
 		//Создаем два потока для чтения двух properties-файлов
 		
@@ -34,7 +28,7 @@ public class Reader implements Reader_Interface{
 			thread1.join();
 			thread2.join();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		
 		Person person = new Person();
