@@ -1,7 +1,6 @@
 package maven.project.TZ.Person;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Properties;
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;
@@ -53,22 +52,6 @@ public Person(Properties property){
 	additionalEducations = Utils.getColl(property.getProperty("additional_educations"));
 	skills = Utils.getColl(property.getProperty("skills"));
 }
-
-	public void setMap(Map<String, String> personMap){
-		FIO = personMap.get("FIO");
-		DOB = personMap.get("DOB");
-		phone = personMap.get("phone");
-		email = personMap.get("email");
-		skype = personMap.get("skype");
-		avatar = personMap.get("avatar");
-		target = personMap.get("target");
-		experiences = personMap.get("experiences");
-		educations = personMap.get("educations");
-		
-		//Преобразуем полученные строки в список, вызывая метод getColl из класса ReturnCollection
-		additionalEducations = Utils.getColl(personMap.get("additional_educations"));
-		skills = Utils.getColl(personMap.get("skills"));
-	}
 
 	public String getFIO() {
 		return FIO;

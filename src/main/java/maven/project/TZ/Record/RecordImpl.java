@@ -17,41 +17,41 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RecordImpl implements Record{
-	static String html;
-	
-	String FIO;
-	String DOB;
-	String Phone;
-	String Email;
-	String Skype;
-	String Avatar;
-	String Target;
-	String Experiences;
-	String Educations;
-	String AdditionalEducations;
-	String Skills;
+//	static String html;
+//	
+//	String FIO;
+//	String DOB;
+//	String Phone;
+//	String Email;
+//	String Skype;
+//	String Avatar;
+//	String Target;
+//	String Experiences;
+//	String Educations;
+//	String AdditionalEducations;
+//	String Skills;
 	
 	@Autowired
 	private PersonServise personServise;
 	
 	public void rec(){
 		//Получаем данные из объекта Person
-		
-		Person person = personServise.getPerson();
-		
-	FIO = person.getFIO();
-	DOB = person.getDOB();
-	Phone = person.getPhone();
-	Email = person.getEmail();
-	Skype = person.getSkype();
-	Avatar = person.getAvatar();
-	Target = person.getTarget();
-	Experiences = person.getExperiences();
-	Educations = person.getEducations();
-	
-	//Преобразуем списки в строку, с помощью вызова метода getStr из класса ReturnCollection
-	AdditionalEducations =  Utils.getStr(person.getAdditionalEducations());
-	Skills = Utils.getStr(person.getSkills());
+//		
+//		Person person = personServise.getPerson();
+//		
+//	FIO = person.getFIO();
+//	DOB = person.getDOB();
+//	Phone = person.getPhone();
+//	Email = person.getEmail();
+//	Skype = person.getSkype();
+//	Avatar = person.getAvatar();
+//	Target = person.getTarget();
+//	Experiences = person.getExperiences();
+//	Educations = person.getEducations();
+//	
+//	//Преобразуем списки в строку, с помощью вызова метода getStr из класса ReturnCollection
+//	AdditionalEducations =  Utils.getStr(person.getAdditionalEducations());
+//	Skills = Utils.getStr(person.getSkills());
 	
 	try{
 		
@@ -66,6 +66,8 @@ public class RecordImpl implements Record{
 	
 	public void writerFile() throws IOException {
 
+		Person person = personServise.getPerson();
+		
 		//Записываем строку html в html-файл
 		
 		File file = new File("src\\main\\file\\summary.html");
@@ -92,27 +94,27 @@ public class RecordImpl implements Record{
 						"    <p align=\"right\"> <b>Skype:</b></p>\n" +
 						"    </div>\n" +
 						"    <div id=\"inform2\" style=\"width: 40%; float: left\">\n" +
-						"    <p>"+FIO+"</p>\n" +
-						"    <p>"+DOB+"</p>\n" +
-						"    <p>"+Phone+"</p>\n" +
-						"    <p>"+Email+"</p>\n" +
-						"    <p>"+Skype+"</p>\n" +
+						"    <p>"+person.getFIO()+"</p>\n" +
+						"    <p>"+person.getDOB()+"</p>\n" +
+						"    <p>"+person.getPhone()+"</p>\n" +
+						"    <p>"+person.getEmail()+"</p>\n" +
+						"    <p>"+person.getSkype()+"</p>\n" +
 						"    </div>\n" +
 						"    <div id=\"avatar\" style=\"float: left\">\n" +
-						"    <img src=\""+Avatar+"\" alt=\"Изображение отсутствует\" aling=\"center\">\n" +
+						"    <img src=\""+person.getAvatar()+"\" alt=\"Изображение отсутствует\" aling=\"center\">\n" +
 						"    </div>\n" +
 						"        </div>\n" +
 						"    <div style=\"clear: both; margin-left:2%; padding-top:0.3em; padding-bottom:1.5em\">\n" +
 						"    <h3>Цель:</h3>\n" +
-						"    "+Target+"\n" +
+						"    "+person.getTarget()+"\n" +
 						"        <h3>Опыт работы:</h3>\n" +
-						"    "+Experiences+"\n" +
+						"    "+person.getExperiences()+"\n" +
 						"        <h3>Образование:</h3>\n" +
-						"    "+Educations+"\n" +
+						"    "+person.getEducations()+"\n" +
 						"        <h3>Пройденные курсы:</h3>\n" +
-						"    "+AdditionalEducations+"\n" +
+						"    "+Utils.getStr(person.getAdditionalEducations())+"\n" +
 						"        <h3>Навыки:</h3>\n" +
-						"    "+Skills+"\n" +
+						"    "+Utils.getStr(person.getSkills())+"\n" +
 						"    </div>\n" +
 						"</body>\n" +
 						"</html>");

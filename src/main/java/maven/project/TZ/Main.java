@@ -13,21 +13,21 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class Main {
-	
-	
+
+
 	public static void main(String[] args) {
 
-			ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
 
 		PersonServise personServise = context.getBean(PersonServise.class);
-			
-			Record clasRec = context.getBean(Record.class);
-			Date date = context.getBean(Date.class);
+
+		Record clasRec = context.getBean(Record.class);
+		Date date = context.getBean(Date.class);
 
 		date.person = personServise.getPerson();
- 			clasRec.rec();
+		clasRec.rec();
 
-		
+
 	}
-	
+
 }
