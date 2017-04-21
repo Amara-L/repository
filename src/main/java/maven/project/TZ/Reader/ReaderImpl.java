@@ -3,6 +3,7 @@ package maven.project.TZ.Reader;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,18 @@ import maven.project.TZ.Person.Person;
 @Service
 public class ReaderImpl implements Reader{
 
+	final static String PROPERTY_PATH_1 = "src/main/resources/person.properties";
+	final static String PROPERTY_PATH_2 = "src/main/resources/person2.properties";
+
 	public Person read(){
 
 //Создаем HashMap, который будет хранить получаемые из properties-файла данные
 		Map<String, String> personMap = new HashMap<String, String>();
 		
 		//Создаем два потока для чтения двух properties-файлов
-		
-		Thread thread1 = new Thread(new PropertyReader("person.properties"));
-		Thread thread2 = new Thread(new PropertyReader("person2.properties"));
+		Properties property = new Properties();
+		Thread thread1 = new Thread(new PropertyReader(PROPERTY_PATH_1,property));
+		Thread thread2 = new Thread(new PropertyReader(PROPERTY_PATH_2,property));
 		
 		thread1.start();
 		thread2.start();
@@ -32,12 +36,8 @@ public class ReaderImpl implements Reader{
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
-		
-		Person person = new Person();
 
-		personMap.putAll(PropertyReader.personMap);
-		
-		person.setMap(personMap);
+		Person person = new Person(property);
 
 		return person;
 		

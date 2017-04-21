@@ -2,12 +2,19 @@ package maven.project.TZ.Person;
 
 import java.util.ArrayList;
 import java.util.Map;
-
+import java.util.Properties;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 import maven.project.TZ.Others.Utils;
 
 
-
+//@Entity
 public class Person {
+	
+//	@Id
+//	@GeneratedValue
+//	private Long id;
 
 	private String FIO;
 
@@ -31,6 +38,21 @@ public class Person {
 
 	private ArrayList<String> skills;
 
+public Person(Properties property){
+	FIO = property.getProperty("FIO");
+	DOB = property.getProperty("DOB");
+	phone = property.getProperty("phone");
+	email = property.getProperty("email");
+	skype = property.getProperty("skype");
+	avatar = property.getProperty("avatar");
+	target = property.getProperty("target");
+	experiences = property.getProperty("experiences");
+	educations = property.getProperty("educations");
+
+	//Преобразуем полученные строки в список, вызывая метод getColl из класса ReturnCollection
+	additionalEducations = Utils.getColl(property.getProperty("additional_educations"));
+	skills = Utils.getColl(property.getProperty("skills"));
+}
 
 	public void setMap(Map<String, String> personMap){
 		FIO = personMap.get("FIO");

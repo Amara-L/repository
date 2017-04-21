@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PersonController {
-	
+
 	@Autowired
 	DataPersServise service;
-	
+
+
 	@RequestMapping("/summary")
-    public String getEmployeeInfo(Model model) {
-		
+	public String getEmployeeInfo(Model model) {
+
 		Person pers = service.getPers();
-		
+
 		model.addAttribute("FIO",pers.getFIO());
 		model.addAttribute("DOB",pers.getDOB());
 		model.addAttribute("Phone",pers.getPhone());
@@ -32,7 +33,8 @@ public class PersonController {
 		model.addAttribute("Skills",pers.getSkills());
 
 		return "summary";
-		
+
+
 	}
 
 }
